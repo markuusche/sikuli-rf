@@ -1,0 +1,12 @@
+*.html
+*.xml
+*.png
+*.PNG
+Sikuli_java_*
+sikuli_captured
+results
+imgs
+venv
+.bashrc
+~/.bashrc
+__pycache__

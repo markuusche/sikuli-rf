@@ -1,0 +1,9 @@
+robotframework
+robotframework-seleniumlibrary
+robotframework-SikuliLibrary
+robotframework-requests
+robotframework-faker
+setuptools
+pyyaml
+pyautogui
+Pillow

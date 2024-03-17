@@ -1,0 +1,32 @@
+Buttons:
+  confirm:                                              [1029,815,87,29]
+  rebet:                                                [747,817,87,31]
+  cancel:                                               [1029,815,87,29]
+
+Lobby:
+  main:                                                 [168,300,1584,729]
+  center:                                               [956,501,0,0]
+  home:                                                 [17,197,46,37]
+
+InGame:
+  balance:                                              [183,169,285,46]
+  digitalmsg:                                           [680,357,525,129]
+  bettingArea:                                          [233,332,1460,457]
+  timer:                                                [614,164,126,115]
+  baccarat:
+    player:                                             [517,697,13,10]
+    tie:                                                [884,712,11,7]
+    banker:                                             [1282,705,8,6]
+    player-pair:                                        [613,622,107,21]
+    any-pair:                                           [806,623,126,21]
+    perfect-pair:                                       [973,621,172,24]
+    banker-pair:                                        [1189,618,127,24]
+    player-bonus:                                       [241,702,42,36]
+    banker-bonus:                                       [1625,694,47,35]
+
+ImagePath:
+  Main:                                                 "\\imgs\\"
+  Nav:                                                  "\\imgs\\nav"
+  Table:                                                "\\imgs\\tables"
+
+
