@@ -48,30 +48,30 @@ Start Playing
     END
     
 Bet All-in
-    [Documentation]                                                  Betting All-in
-    [Arguments]                                                      ${category}
-    ...                                                              ${table}
-    ${game}                                                          Set Variable
-    ...                                                              ${InGame}[${category}]
-    ${getKeys}                                                       Get Dictionary Values
-    ...                                                              ${game}
-    ...                                                              sort_keys=False
+    [Documentation]                                                 Betting All-in
+    [Arguments]                                                     ${category}
+    ...                                                             ${table}
+    ${game}                                                         Set Variable
+    ...                                                             ${InGame}[${category}]
+    ${getKeys}                                                      Get Dictionary Values
+    ...                                                             ${game}
+    ...                                                             sort_keys=False
     
     WHILE    True
-        Set Move Mouse Delay                                         0.0
-        Run Keyword                                                  Bet On Region
-        ${contains}                                                  Get Digital Message Text
-        ...                                                          Insufficient Balance!
+        Set Move Mouse Delay                                        0.0
+        Run Keyword                                                 Bet On Region
+        ${contains}                                                 Get Digital Message Text
+        ...                                                         Insufficient Balance!
         IF    ${contains}
-            Click Region                                             ${Buttons}[confirm]
+            Click Region                                            ${Buttons}[confirm]
             Wait Betting Timer CLOSED
-            ${data}                                                  Read Text From Region
-            ...                                                      ${InGame}[balance]
-            Validate Region                                          ${table}  
-            ...                                                      ${data}   
-            ...                                                      0.00
-            ...                                                      All-in Bet ${data}
-            Wait Until Visible                                       Place
+            ${data}                                                 Read Text From Region
+            ...                                                     ${InGame}[balance]
+            Validate Region                                         ${table}  
+            ...                                                     ${data}   
+            ...                                                     0.00
+            ...                                                     All-in Bet ${data}
+            Wait Until Visible                                      Place
             BREAK
         END
     END

@@ -19,22 +19,11 @@ Get Request JSON
 Elements Should Exists on the Screen
 	[Documentation]                                         Check if elements exists on the screen
 	[Arguments]                                             @{elements}
-	FOR    ${element}                                       IN          @{elements}
+	FOR    ${element}    IN    @{elements}
 		${status}                                           Run Keyword and Return Status                                                      
         ...                                                 Wait Until Screen Contain
         ...                                                 ${EXECDIR}${ImagePath.Main}${element}                                                 
         ...                                                 80
-	END
-
-Image Should Exists on the Screen
-	[Documentation]                                         Check if elements exists on the screen
-	[Arguments]                                             @{elements}
-	FOR    ${element}                                       IN          @{elements}
-        Set Min Similarity                                  0.90
-		${status}                                           Run Keyword and Return Status                                                       
-        ...                                                 Wait Until Screen Contain
-        ...                                                 ${EXECDIR}${ImagePath.Main}${element}                                            
-        ...                                                 60
 	END
 
 Wait Until Visible
