@@ -1,32 +1,27 @@
 Buttons:
-  confirm:                                              [1029,815,87,29]
-  rebet:                                                [747,817,87,31]
-  cancel:                                               [1029,815,87,29]
+  confirm:                                              [1079,857,11,9]
+  rebet:                                                [953,856,10,9]
+  cancel:                                               [822,852,11,12]
 
 Lobby:
-  main:                                                 [168,300,1584,729]
-  center:                                               [956,501,0,0]
-  home:                                                 [17,197,46,37]
+  center:                                               [955,474,10,11]
 
 InGame:
-  balance:                                              [183,169,285,46]
-  digitalmsg:                                           [680,357,525,129]
-  bettingArea:                                          [233,332,1460,457]
-  timer:                                                [614,164,126,115]
+  balance:                                              [263,162,260,43]
+  digitalmsg:                                           [790,371,359,65]
+  result:                                               [271,454,248,41]
   baccarat:
-    player:                                             [517,697,13,10]
-    tie:                                                [884,712,11,7]
-    banker:                                             [1282,705,8,6]
-    player-pair:                                        [613,622,107,21]
-    any-pair:                                           [806,623,126,21]
-    perfect-pair:                                       [973,621,172,24]
-    banker-pair:                                        [1189,618,127,24]
-    player-bonus:                                       [241,702,42,36]
-    banker-bonus:                                       [1625,694,47,35]
+    player:                                             [572,739,40,29]
+    tie:                                                [947,748,36,32]
+    banker:                                             [1310,742,47,33]
+    player-pair:                                        [684,671,15,11]
+    any-pair:                                           [867,668,12,11]
+    perfect-pair:                                       [1038,672,12,11]
+    banker-pair:                                        [1215,673,13,11]
+    player-bonus:                                       [334,722,31,28]
+    banker-bonus:                                       [1550,716,11,12]
 
 ImagePath:
   Main:                                                 "\\imgs\\"
   Nav:                                                  "\\imgs\\nav"
   Table:                                                "\\imgs\\tables"
-
-

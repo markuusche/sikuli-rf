@@ -25,7 +25,7 @@ Validate Region
     ...                                                     ${second}
     
     IF    ${result}
-        Log To Console                                      [${PASSED}] Table: ${table} - ${message}
+        Log To Console                                      ${PASSED} Table: ${table} - ${message}
     ELSE
-        Log To Console                                      [${FAILED}] Table: ${table} - ${message}
+        Log To Console                                      ${FAILED} Table: ${table} - ${message}
     END

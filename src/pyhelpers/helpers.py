@@ -1,6 +1,7 @@
 import pyautogui as py
 import yaml
 import random
+import os
 
 def data(*keys):
     with open('resources/config.yaml','r') as file:
@@ -23,6 +24,3 @@ def bet_on_region():
 
         if i == 10:
             break
-
-
-

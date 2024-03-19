@@ -26,29 +26,39 @@ Elements Should Exists on the Screen
         ...                                                 80
 	END
 
-Wait Until Visible
+Wait Until Betting Opens
     [Documentation]                                         Waits until Betting opens for Betting Area
-    [Arguments]                                             ${text}
-    ${betting}=                                             Set Variable                                                                        
+    ${betting}=                                             Set Variable                                                                       
     ...                                                     False
     Sleep                                                   7s
     WHILE    not ${betting}
-        ${contains}                                         Get Digital Message Text                                                                          
-        ...                                                 ${text}
+        ${result}=                                          Read Text From Region                                                               
+        ...                                                 ${InGame}[digitalmsg]
+        ${contains}=                                        Run Keyword And Return Status                                                       
+        ...                                                 Should Contain
+        ...                                                 ${result}                                                                           
+        ...                                                 Place
         ${betting}=                                         Set Variable If                                                                     
         ...                                                 ${contains}
         ...                                                 True
     END
 
-Wait Betting Timer CLOSED
-    [Documentation]                                         Waits until Betting opens for Betting Area
+Wait Until Digital Results
+    [Documentation]                                         Waits until digital results
     WHILE    True
-        ${image}                                            Run Keyword And Return Status
-        ...                                                 Wait Until Screen Contain                               
-        ...                                                 ${EXECDIR}${ImagePath.Main}result.png    
-        ...                                                 
+        ${result}                                           Read Text From Region                                                              
+        ...                                                 ${InGame}[result]
         
-        IF    ${image}
+        ${texts}                                            Create List
+        ...                                                 WIN
+        ...                                                 TIE
+
+        ${win}                                              Run Keyword And Return Status
+        ...                                                 Should Contain Any  
+        ...                                                 ${result}
+        ...                                                 @{texts}
+        
+        IF    ${win}
             BREAK
         END
     END
