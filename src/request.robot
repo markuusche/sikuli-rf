@@ -8,10 +8,10 @@ Launch Game
     ${options}                                      Evaluate
     ...                                             sys.modules['selenium.webdriver'].EdgeOptions()
     ...                                             sys, selenium.webdriver
-    Call Method                                     ${options}   
-    ...                                             add_argument    
+    Call Method                                     ${options}
+    ...                                             add_argument
     ...                                             InPrivate
-    Create WebDriver                                Edge    
+    Create WebDriver                                Edge
     ...                                             options=${options}
     Maximize Browser Window
     Go To                                           ${URL}
@@ -22,36 +22,41 @@ GET Token
     ${headers}                                      Create Dictionary
     ...                                             %{Ops}=%{XOp}
     ...                                             %{querKey}=%{Xkey}
-    
-    ${res}                                          Get Request JSON    
-    ...                                             %{base}%{desc}    
+
+    ${res}                                          Get Request JSON
+    ...                                             %{base}%{desc}
     ...                                             200
     ...                                             ${headers}
     RETURN                                          ${headers}
-    ...                                             ${res}[data][token]  
-    
+    ...                                             ${res}[data][token]
+
 Get Game Key
     [Documentation]                                 GET gamekey from user
     ${token}                                        GET Token
     ${headers}                                      Set To Dictionary
     ...                                             ${token}[0]
-    ...                                             %{Tk}=${token}[1]
-    
+    ...                                             %{tk}=${token}[1]
+
+    ${body}                                         Create Dictionary
+    ...                                             %{usr}=%{username}
+    ...                                             %{bl}=124
+
     ${data}                                         GET
-    ...                                             url=%{base}%{key}?username=%{username}
+    ...                                             %{base}%{key}
     ...                                             expected_status=200
     ...                                             headers=${headers}
+    ...                                             params=${body}
     RETURN                                          ${headers}
     ...                                             ${data.json()}
-    
+
 Get Play URL
     [Documentation]                                 Obtain Game URL
     ${gameKey}                                      Get Game Key
-    ${data}                                         Get Request JSON    
-    ...                                             %{base}%{play}?key=${gameKey}[1][data][key]    
+    ${data}                                         Get Request JSON
+    ...                                             %{base}%{play}?key=${gameKey}[1][data][key]
     ...                                             200
     RETURN                                          ${data}[data][url]
-    
+
 Add Balance
     [Documentation]                                 Adds user balance
     [Arguments]                                     ${amount}
@@ -59,31 +64,32 @@ Add Balance
     ${fetch}                                        GET Token
     ${Id}                                           Generate random username
     ${header}                                       Create Dictionary
-    ...                                             %{Tk}=${fetch}[1]
+    ...                                             %{tk}=${fetch}[1]
     ${body}                                         Create Dictionary
-    ...                                             username=%{username}
-    ...                                             balance=${amount}
-    ...                                             action=${entry}
-    ...                                             transferId=${Id}
-    
+    ...                                             %{usr}=%{username}
+    ...                                             %{blnc}=${amount}
+    ...                                             %{acn}=${entry}
+    ...                                             %{trsId}=${Id}
+
     ${response}                                     POST
     ...                                             %{base}%{balance}
     ...                                             headers=${header}
     ...                                             data=${body}
     ...                                             expected_status=200
     RETURN                                          ${response.json()}[data][balance]
-    
+
 Modidy User Balance
     [Documentation]                                 Change user balance
     [Arguments]                                     ${amount}=1759.38
     ${getBalance}                                   Add Balance
-    ...                                             ${amount}    
+    ...                                             ${amount}
     ...                                             %{add}
     Add Balance                                     ${getBalance}
     ...                                             %{deduc}
-    Add Balance                                     ${amount}    
+    Add Balance                                     ${amount}
     ...                                             %{add}
-    
+
     Reload Page
+    Set Min Similarity                              0.7
     Wait Until Screen Contain                       ${EXECDIR}${ImagePath.Main}live.png
     ...                                             10

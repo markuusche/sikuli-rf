@@ -7,7 +7,7 @@ Lobby:
   center:                                               [955,474,10,11]
 
 InGame:
-  balance:                                              [263,162,260,43]
+  balance:                                              [265,162,259,43]
   digitalmsg:                                           [790,371,359,65]
   result:                                               [271,454,248,41]
   baccarat:

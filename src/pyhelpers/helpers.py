@@ -1,7 +1,12 @@
 import pyautogui as py
+import pytesseract
 import yaml
 import random
 import os
+
+deviceName = os.environ['USERPROFILE'].split(os.path.sep)[-1]
+path = f'C:\\Users\\{deviceName}\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = path
 
 def data(*keys):
     with open('resources/config.yaml','r') as file:
@@ -24,3 +29,14 @@ def bet_on_region():
 
         if i == 10:
             break
+
+def wait_until_message(value):
+    while True:
+        region = (741,364,437,72)
+        screenshot = py.screenshot(region=region)
+        gray = screenshot.convert('L')
+        getText = pytesseract.image_to_string(gray)
+        if value in getText:
+            return True
+        else:
+            continue
