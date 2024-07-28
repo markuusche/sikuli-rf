@@ -1,4 +1,4 @@
-<img src="https://static-00.iconduck.com/assets.00/bird-emoji-512x464-a4q0h3hw.png" alt="Bird Emoji" width="150">
+<img src="https://cdn-icons-png.freepik.com/512/815/815025.png" alt="Bird Emoji" width="150">
 
 
 — Sikuli GUI Automation —
