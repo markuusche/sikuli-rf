@@ -26,7 +26,7 @@ Project Dependencies
 Coverage
 ---------
 
-   * In-game betting
+   * Baccarat All-in Bet
 
 Pre-Requisites
 --------------
