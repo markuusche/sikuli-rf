@@ -30,7 +30,11 @@ Start Playing
                 ...                                                 "${elements}".split('.png')[0]
                 Sleep                                               7s
                 Wait Until Message                                  Place
+                # ----------------- Test Cases ---------------------
                 Bet All-in                                          ${table}
+                Chat Functionality
+                Sidebet Checking
+                # --------------------------------------------------
                 Capture Page Screenshot
                 Click                                               ${EXECDIR}${ImagePath.Main}home.png
                 Set Min Similarity                                  0.7
@@ -51,30 +55,5 @@ Start Playing
                 ${count}                                            Evaluate
                 ...                                                 ${count}+1
             END
-        END
-
-    END
-
-Bet All-in
-    [Documentation]                                                 Betting All-in
-    [Arguments]                                                     ${table}
-    WHILE    True
-        Set Move Mouse Delay                                        0.0
-        Run Keyword                                                 Bet On Region
-        ${contains}                                                 Get Digital Message Text
-        ...                                                         Insufficient Balance!
-        ...                                                         ${InGame}[digitalmsg]
-        IF    ${contains}
-            Click Region                                            ${Buttons}[confirm]
-            Sleep                                                   2.5s
-            ${data}                                                 Read Text From Region
-            ...                                                     ${InGame}[balance]
-            Assert                                                  ${table}
-            ...                                                     ${data}
-            ...                                                     0.00
-            ...                                                     All-in Bet ${data}
-
-            Wait Until Message                                      Place
-            BREAK
         END
     END

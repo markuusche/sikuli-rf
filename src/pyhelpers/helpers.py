@@ -40,3 +40,7 @@ def wait_until_message(value):
             return True
         else:
             continue
+
+def send_keys(key):
+    py.write(key)
+
